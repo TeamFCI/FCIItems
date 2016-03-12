@@ -1,0 +1,10 @@
+name: FCI
+version: 1.0
+author: HHB
+
+main: de.hhb.main.main
+commands:
+  getitem:
+    description: Get An Random Item Dropped From Monsters
+  fci:
+    description: FCI Main Command
