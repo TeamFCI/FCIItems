@@ -1,4 +1,4 @@
-package de.hhb.Items.Generators;
+package de.happyhappyboy.Items.Generators;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import de.hhb.main.main;
+import de.happyhappyboy.main.main;
 
 public class CreateRandomItem {
 	public static ArrayList<String> enchants = new ArrayList<String>();
@@ -48,7 +48,7 @@ public class CreateRandomItem {
 		lore.add("§9§m------------------------------");
 		for(int i = 1; i < loreLines+1; i++) {
 			String s = cfg.getString("ItemStack.Item.ItemLore.line"+i).replace("&",  "§").replace("{USER}",  p.getName());
-			s = s.replace("&", "§").replace(";", ",").replace("-oe-", "ö").replace("-ae-", "ä").replace("-ue-", "ü").replace("-sz-", "ß").replace("<3", "§4❤§f").replace("´", "'");
+			s = s.replace("&", "§").replace(";", ",").replace("-oe-", "ö").replace("-ae-", "ä").replace("-ue-", "ü").replace("-sz-", "ß").replace("<3", "§4�?�§f").replace("´", "'");
 			s = s.replace("{username}", p.getName()).replace("{displayname}", p.getDisplayName()).replace("{level}", p.getLevel() + "").replace("{exp}", p.getExp() + "").replace("{gamemode}", p.getGameMode().toString()).replace("{hearts}", p.getHealth()  + "").replace("{maxhearts}", p.getMaxHealth() + "").replace("{op}", p.isOp() + "");
 			s = s.replace("-Oe-", "Ö").replace("-Ae-", "Ä").replace("-Ue-", "Ü");
 			lore.add(s);

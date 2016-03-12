@@ -1,4 +1,4 @@
-package de.hhb.main;
+package de.happyhappyboy.main;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,10 +10,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.hhb.Commands.CommandFci;
-import de.hhb.Commands.GetItem;
-import de.hhb.KillMobs.KillDetector;
-import de.hhb.events.EventPluginEnableEvent;
+import de.happyhappyboy.Commands.CommandFci;
+import de.happyhappyboy.Commands.GetItem;
+import de.happyhappyboy.KillMobs.KillDetector;
+import de.happyhappyboy.events.EventPluginEnableEvent;
 
 public class main extends JavaPlugin {
 	public static boolean isLoading = false;

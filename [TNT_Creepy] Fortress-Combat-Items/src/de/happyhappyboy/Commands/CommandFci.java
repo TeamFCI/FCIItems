@@ -1,4 +1,4 @@
-package de.hhb.Commands;
+package de.happyhappyboy.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

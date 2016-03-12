@@ -1,4 +1,4 @@
-package de.hhb.UnknownArmor;
+package de.happyhappyboy.UnknownArmor;
 
 import java.util.ArrayList;
 

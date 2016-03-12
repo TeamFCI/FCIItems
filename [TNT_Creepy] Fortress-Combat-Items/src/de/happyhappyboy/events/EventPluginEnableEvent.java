@@ -1,10 +1,10 @@
-package de.hhb.events;
+package de.happyhappyboy.events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginEnableEvent;
 
-import de.hhb.main.main;
+import de.happyhappyboy.main.main;
 
 public class EventPluginEnableEvent implements Listener {
 	
