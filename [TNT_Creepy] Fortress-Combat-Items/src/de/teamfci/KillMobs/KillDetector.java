@@ -1,4 +1,4 @@
-package de.happyhappyboy.KillMobs;
+package de.teamfci.KillMobs;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
-import de.happyhappyboy.Items.Generators.CreateRandomItem;
+import de.teamfci.Items.Generators.CreateRandomItem;
 
 public class KillDetector implements Listener {
 	

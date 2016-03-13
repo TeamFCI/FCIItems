@@ -1,4 +1,4 @@
-package de.happyhappyboy.Items.Generators;
+package de.teamfci.Items.Generators;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import de.happyhappyboy.main.main;
+import de.teamfci.main.main;
 
 public class CreateRandomItem {
 	public static ArrayList<String> enchants = new ArrayList<String>();

@@ -1,4 +1,4 @@
-package de.happyhappyboy.Commands;
+package de.teamfci.Commands;
 
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -7,8 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import de.happyhappyboy.Items.Generators.CreateRandomItem;
-import de.happyhappyboy.main.main;
+import de.teamfci.Items.Generators.CreateRandomItem;
+import de.teamfci.main.main;
 
 public class GetItem implements CommandExecutor {
 	

@@ -1,8 +1,8 @@
 name: FCI
 version: 1.0
-author: HHB
+author: HappyHappyBoy & FilipZocktan
 
-main: de.hhb.main.main
+main: de.teamfci.main.main
 commands:
   getitem:
     description: Get An Random Item Dropped From Monsters

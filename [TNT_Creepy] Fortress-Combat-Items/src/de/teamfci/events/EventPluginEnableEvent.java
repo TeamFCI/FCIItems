@@ -1,10 +1,10 @@
-package de.happyhappyboy.events;
+package de.teamfci.events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginEnableEvent;
 
-import de.happyhappyboy.main.main;
+import de.teamfci.main.main;
 
 public class EventPluginEnableEvent implements Listener {
 	

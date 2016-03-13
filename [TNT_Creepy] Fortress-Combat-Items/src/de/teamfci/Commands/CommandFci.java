@@ -1,4 +1,4 @@
-package de.happyhappyboy.Commands;
+package de.teamfci.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
