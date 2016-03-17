@@ -1,5 +1,6 @@
 package de.teamfci.Commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -53,7 +54,24 @@ public class GetItem implements CommandExecutor {
 			}
 			
 		} else {
-			sender.sendMessage("NUR FÜR SPIELER!!!");
+			if(args.length == 2) {
+				if(args[0].equalsIgnoreCase("random")){
+					Player p = Bukkit.getPlayer(args[1]);
+					if(p == null) {
+						sender.sendMessage("Spieler nicht online!");
+						return true;
+					}
+					if(p.hasPermission("specialitems.getitem.random")) {
+						ItemStack item = CreateRandomItem.generateItem(p);
+						Location loc = p.getLocation();
+						loc.setY(loc.getY() + 1);
+						loc.getWorld().dropItemNaturally(loc, item);
+					} else {
+						p.sendMessage("§cDu hast keine Permission!");
+						p.sendMessage("§cPermission: §aspecialitems.getitem.random");
+					}
+				}
+			}
 		}
 		
 		return false;
