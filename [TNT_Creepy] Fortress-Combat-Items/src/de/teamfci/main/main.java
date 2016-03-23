@@ -13,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import de.teamfci.Commands.CommandFci;
 import de.teamfci.Commands.GetItem;
 import de.teamfci.KillMobs.KillDetector;
+import de.teamfci.UnknownArmor.Armor;
 import de.teamfci.events.EventPluginEnableEvent;
 
 public class main extends JavaPlugin {
