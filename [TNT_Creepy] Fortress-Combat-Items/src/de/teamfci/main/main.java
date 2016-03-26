@@ -15,6 +15,7 @@ import de.teamfci.Commands.GetItem;
 import de.teamfci.KillMobs.KillDetector;
 import de.teamfci.UnknownArmor.Armor;
 import de.teamfci.events.EventPluginEnableEvent;
+import de.teamfci.events.WarpRoleListener;
 
 public class main extends JavaPlugin {
 	public static boolean isLoading = false;
@@ -25,6 +26,7 @@ public class main extends JavaPlugin {
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new EventPluginEnableEvent(), this);
 		pm.registerEvents(new KillDetector(), this);
+		pm.registerEvents(new WarpRoleListener(), this);
 		this.getCommand("getitem").setExecutor(new GetItem());
 		this.getCommand("fci").setExecutor(new CommandFci());
 		
