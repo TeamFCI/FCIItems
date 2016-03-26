@@ -21,14 +21,14 @@ public class WarpRoleListener implements Listener {
 				p.setItemInHand(newroles);
 			}
 		}
-		if (ac.equals(Action.RIGHT_CLICK_BLOCK)) {
-			Player p = ev.getPlayer();
-			if (p.getItemInHand().getItemMeta().getLore().get(1).contains("Rechtsklick um zum Spawn zu gelangen")) {
-				p.performCommand("spawn");
-				ItemStack newroles = p.getItemInHand();
-				newroles.setAmount(newroles.getAmount() - 1);
-				p.setItemInHand(newroles);
-			}
-		}
+//		if (ac.equals(Action.RIGHT_CLICK_BLOCK)) {
+//			Player p = ev.getPlayer();
+//			if (p.getItemInHand().getItemMeta().getLore().get(1).contains("Rechtsklick um zum Spawn zu gelangen")) {
+//				p.performCommand("spawn");
+//				ItemStack newroles = p.getItemInHand();
+//				newroles.setAmount(newroles.getAmount() - 1);
+//				p.setItemInHand(newroles);
+//			}
+//		}
 	}
 }
