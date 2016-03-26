@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -36,7 +37,9 @@ public class GetItem implements CommandExecutor {
 						ItemStack item = CreateRandomItem.generateItem(p);
 						Location loc = p.getLocation();
 						loc.setY(loc.getY() + 1);
-						loc.getWorld().dropItemNaturally(loc, item);
+						Item i = loc.getWorld().dropItemNaturally(loc, item);
+						i.setCustomName(item.getItemMeta().getDisplayName());
+						i.setCustomNameVisible(true);
 					} else {
 						p.sendMessage("§cDu hast keine Permission!");
 						p.sendMessage("§cPermission: §aspecialitems.getitem.random");
@@ -65,7 +68,9 @@ public class GetItem implements CommandExecutor {
 						ItemStack item = CreateRandomItem.generateItem(p);
 						Location loc = p.getLocation();
 						loc.setY(loc.getY() + 1);
-						loc.getWorld().dropItemNaturally(loc, item);
+						Item i = loc.getWorld().dropItemNaturally(loc, item);
+						i.setCustomName(item.getItemMeta().getDisplayName());
+						i.setCustomNameVisible(true);
 					} else {
 						p.sendMessage("§cDu hast keine Permission!");
 						p.sendMessage("§cPermission: §aspecialitems.getitem.random");
