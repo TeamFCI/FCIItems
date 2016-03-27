@@ -3,6 +3,7 @@ package de.teamfci.events;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -23,24 +24,50 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import de.slikey.effectlib.EffectManager;
+import de.slikey.effectlib.effect.LineEffect;
+import de.slikey.effectlib.util.DynamicLocation;
+import de.slikey.effectlib.util.ParticleEffect;
+import de.teamfci.dataprovider.dataprovider;
 import de.teamfci.main.main;
 
 public class WarpRoleListener implements Listener {
-
+	EffectManager em;
 	HashMap<String, BukkitRunnable> hm = new HashMap<String, BukkitRunnable>();
 	public static main pl;
 	public WarpRoleListener(main main) {
-		this.pl = main;
+		WarpRoleListener.pl = main;
+		em = new EffectManager(pl);
 	}
 	
 	@EventHandler
 	public void onInteract(PlayerInteractEvent ev) {
-		Entity e;
 		Action ac = ev.getAction();
 		if (ac.equals(Action.RIGHT_CLICK_BLOCK) || ac.equals(Action.RIGHT_CLICK_AIR)) {
 			final Player p = ev.getPlayer();
 			if (p.getItemInHand().getItemMeta().getLore().get(1).contains("Rechtsklick um zum Spawn zu gelangen")) {
-				sudo(p, "spawn");
+				hm.put(p.getName() + "role", new BukkitRunnable() {
+					
+					@Override
+					public void run() {
+						
+						LineEffect leff	= new LineEffect(em);
+						DynamicLocation loc = new DynamicLocation(p);
+						leff.setDynamicOrigin(loc);
+						leff.particle = ParticleEffect.FIREWORKS_SPARK;
+						leff.color = Color.WHITE;
+						leff.start();
+						
+					}
+				});
+				hm.get(p.getName()+"role").runTask(pl);
+				
+				
+				
+				
+				//sudo(p, "spawn");
+//				Location loc = dataprovider.getSpawnLocation(dataprovider.getTeam(p), p);
+//				p.teleport(loc);
 				ItemStack newroles = p.getItemInHand();
 				newroles.setAmount(newroles.getAmount() - 1);
 				p.setItemInHand(newroles);
