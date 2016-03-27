@@ -23,6 +23,7 @@ public class main extends JavaPlugin {
 	public static ArrayList<String> filenames = new ArrayList<String>();
 	
 	public void onEnable() {
+		WarpRoleListener.pl = this;
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new EventPluginEnableEvent(), this);
 		pm.registerEvents(new KillDetector(), this);
