@@ -12,7 +12,6 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Bat;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Ghast;
-import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Slime;
@@ -24,20 +23,16 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.effect.LineEffect;
 import de.slikey.effectlib.util.DynamicLocation;
 import de.slikey.effectlib.util.ParticleEffect;
-import de.teamfci.dataprovider.dataprovider;
 import de.teamfci.main.main;
 
 public class WarpRoleListener implements Listener {
-	EffectManager em;
 	HashMap<String, BukkitRunnable> hm = new HashMap<String, BukkitRunnable>();
 	public static main pl;
 	public WarpRoleListener(main main) {
 		WarpRoleListener.pl = main;
-		em = new EffectManager(pl);
 	}
 	
 	@EventHandler
@@ -46,21 +41,25 @@ public class WarpRoleListener implements Listener {
 		if (ac.equals(Action.RIGHT_CLICK_BLOCK) || ac.equals(Action.RIGHT_CLICK_AIR)) {
 			final Player p = ev.getPlayer();
 			if (p.getItemInHand().getItemMeta().getLore().get(1).contains("Rechtsklick um zum Spawn zu gelangen")) {
-				hm.put(p.getName() + "role", new BukkitRunnable() {
+				hm.put(p.getName()+"role", new BukkitRunnable() {
 					
 					@Override
 					public void run() {
 						
-						LineEffect leff	= new LineEffect(em);
-						DynamicLocation loc = new DynamicLocation(p);
+						LineEffect leff	= new LineEffect(pl.em);
+						DynamicLocation loc = new DynamicLocation(p.getLocation());
 						leff.setDynamicOrigin(loc);
+						Location location = p.getLocation();
+						location.setY(location.getY() + 20);
+						DynamicLocation loc2 = new DynamicLocation(location);
+						leff.setDynamicTarget(loc2);
 						leff.particle = ParticleEffect.FIREWORKS_SPARK;
 						leff.color = Color.WHITE;
 						leff.start();
 						
 					}
 				});
-				hm.get(p.getName()+"role").runTask(pl);
+				hm.get(p.getName()+"role").runTaskLater(pl, 20L);
 				
 				
 				

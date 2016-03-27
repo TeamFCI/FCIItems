@@ -10,19 +10,21 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import de.slikey.effectlib.EffectManager;
 import de.teamfci.Commands.CommandFci;
 import de.teamfci.Commands.GetItem;
 import de.teamfci.KillMobs.KillDetector;
-import de.teamfci.UnknownArmor.Armor;
 import de.teamfci.events.EventPluginEnableEvent;
 import de.teamfci.events.WarpRoleListener;
 
 public class main extends JavaPlugin {
+	public static EffectManager em;
 	public static boolean isLoading = false;
 	public static ArrayList<String> normalitems = new ArrayList<String>();
 	public static ArrayList<String> filenames = new ArrayList<String>();
 	
 	public void onEnable() {
+		em = new EffectManager(this);
 		WarpRoleListener.pl = this;
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new EventPluginEnableEvent(), this);
