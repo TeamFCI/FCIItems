@@ -41,39 +41,66 @@ public class WarpRoleListener implements Listener {
 		if (ac.equals(Action.RIGHT_CLICK_BLOCK) || ac.equals(Action.RIGHT_CLICK_AIR)) {
 			final Player p = ev.getPlayer();
 			if (p.getItemInHand().getItemMeta().getLore().get(1).contains("Rechtsklick um zum Spawn zu gelangen")) {
+				
 				hm.put(p.getName()+"role", new BukkitRunnable() {
-					
+					int high = 7;
 					@Override
 					public void run() {
-						
-						for (int x = -2; x < 2; x++) {
-							for (int z = -2; z < 2; z++) {
-								LineEffect leff	= new LineEffect(pl.em);
-								Location location = p.getLocation();
-								location.setX(location.getX()+x);
-								location.setZ(location.getZ()+z);
-								DynamicLocation loc = new DynamicLocation(location);
-								leff.setDynamicOrigin(loc);
-								Location location2 = p.getLocation();
-								location2.setY(location2.getY() + 20);
-								DynamicLocation loc2 = new DynamicLocation(location2);
-								leff.setDynamicTarget(loc2);
-								leff.particle = ParticleEffect.FIREWORKS_SPARK;
-								leff.color = Color.WHITE;
-								leff.start();
+						high--;
+						if(!(high==0)){
+							for (int x = (high*-1); x < high; x++) {
+								for (int z = (high*-1); z < high; z++) {
+									LineEffect leff = new LineEffect(pl.em);
+									Location location = p.getLocation();
+									location.setX(location.getX() + x);
+									location.setZ(location.getZ() + z);
+									DynamicLocation loc = new DynamicLocation(location);
+									leff.setDynamicOrigin(loc);
+									Location location2 = p.getLocation();
+									location2.setY(location2.getY() + 20);
+									DynamicLocation loc2 = new DynamicLocation(location2);
+									leff.setDynamicTarget(loc2);
+									leff.particle = ParticleEffect.FIREWORKS_SPARK;
+									if(high == 7){
+										leff.color = Color.AQUA;
+									}
+									if(high == 6){
+										leff.color = Color.BLUE;
+									}
+									if(high == 5){
+										leff.color = Color.NAVY;
+									}
+									if(high == 4){
+										leff.color = Color.TEAL;
+									}
+									if(high == 3){
+										leff.color = Color.GREEN;
+									}
+									if(high == 2){
+										leff.color = Color.LIME;
+									}
+									if(high == 1){
+										leff.color = Color.WHITE;
+									}
+									leff.start();
+								}
 							}
+						} else {
+							sudo(p, "spawn");
+							return;
 						}
+						
 						
 						
 						
 					}
 				});
-				hm.get(p.getName()+"role").runTaskLater(pl, 20L);
+				hm.get(p.getName()+"role").runTaskTimer(pl, 20L,20L);
+				
+
 				
 				
 				
-				
-				//sudo(p, "spawn");
 //				Location loc = dataprovider.getSpawnLocation(dataprovider.getTeam(p), p);
 //				p.teleport(loc);
 				ItemStack newroles = p.getItemInHand();
