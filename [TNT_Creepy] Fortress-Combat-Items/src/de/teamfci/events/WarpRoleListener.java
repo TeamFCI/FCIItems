@@ -46,19 +46,25 @@ public class WarpRoleListener implements Listener {
 					@Override
 					public void run() {
 						
-						LineEffect leff	= new LineEffect(pl.em);
-						DynamicLocation loc = new DynamicLocation(p.getLocation());
-						leff.setDynamicOrigin(loc);
-						Location location = p.getLocation();
-						location.setY(location.getY() + 20);
-						DynamicLocation loc2 = new DynamicLocation(location);
-						leff.setDynamicTarget(loc2);
-						leff.particle = ParticleEffect.FIREWORKS_SPARK;
-						leff.color = Color.WHITE;
-						leff.particleOffsetX = 2;
-						leff.particleOffsetZ = 2;
-						leff.particleCount = 2000;
-						leff.start();
+						for (int x = -2; x < 2; x++) {
+							for (int z = -2; z < 2; z++) {
+								LineEffect leff	= new LineEffect(pl.em);
+								Location location = p.getLocation();
+								location.setX(location.getX()+x);
+								location.setZ(location.getZ()+z);
+								DynamicLocation loc = new DynamicLocation(location);
+								leff.setDynamicOrigin(loc);
+								Location location2 = p.getLocation();
+								location2.setY(location2.getY() + 20);
+								DynamicLocation loc2 = new DynamicLocation(location2);
+								leff.setDynamicTarget(loc2);
+								leff.particle = ParticleEffect.FIREWORKS_SPARK;
+								leff.color = Color.WHITE;
+								leff.start();
+							}
+						}
+						
+						
 						
 					}
 				});
