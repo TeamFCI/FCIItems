@@ -55,6 +55,9 @@ public class WarpRoleListener implements Listener {
 						leff.setDynamicTarget(loc2);
 						leff.particle = ParticleEffect.FIREWORKS_SPARK;
 						leff.color = Color.WHITE;
+						leff.particleOffsetX = 2;
+						leff.particleOffsetZ = 2;
+						leff.particleCount = 2000;
 						leff.start();
 						
 					}
