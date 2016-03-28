@@ -28,12 +28,12 @@ import de.slikey.effectlib.util.DynamicLocation;
 import de.slikey.effectlib.util.ParticleEffect;
 import de.teamfci.main.main;
 
-public class WarpRoleListener implements Listener {
+public class SpecialItems implements Listener {
 	HashMap<String, BukkitRunnable> hm = new HashMap<String, BukkitRunnable>();
 	HashMap<Player, Location> pos = new HashMap<Player, Location>();
 	public static main pl;
-	public WarpRoleListener(main main) {
-		WarpRoleListener.pl = main;
+	public SpecialItems(main main) {
+		SpecialItems.pl = main;
 	}
 	
 	@EventHandler

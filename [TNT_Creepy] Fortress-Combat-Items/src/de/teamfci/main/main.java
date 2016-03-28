@@ -15,7 +15,7 @@ import de.teamfci.Commands.CommandFci;
 import de.teamfci.Commands.GetItem;
 import de.teamfci.KillMobs.KillDetector;
 import de.teamfci.events.EventPluginEnableEvent;
-import de.teamfci.events.WarpRoleListener;
+import de.teamfci.events.SpecialItems;
 
 public class main extends JavaPlugin {
 	public static EffectManager em;
@@ -25,11 +25,11 @@ public class main extends JavaPlugin {
 	
 	public void onEnable() {
 		em = new EffectManager(this);
-		WarpRoleListener.pl = this;
+		SpecialItems.pl = this;
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new EventPluginEnableEvent(), this);
 		pm.registerEvents(new KillDetector(), this);
-		pm.registerEvents(new WarpRoleListener(this), this);
+		pm.registerEvents(new SpecialItems(this), this);
 		this.getCommand("getitem").setExecutor(new GetItem());
 		this.getCommand("fci").setExecutor(new CommandFci());
 		
