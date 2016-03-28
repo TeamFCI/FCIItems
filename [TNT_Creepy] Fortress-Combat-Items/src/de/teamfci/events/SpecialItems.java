@@ -55,6 +55,7 @@ public class SpecialItems implements Listener {
 							}
 							if(!p.getLocation().equals(pos.get(p))){
 								p.sendMessage("Teleportvorgand abgebrochen. Rolle wird nicht zurückerstattet.");
+								return;
 							}
 							for (int x = (-3); x < 3; x++) {
 								for (int z = (-3); z < 3; z++) {
