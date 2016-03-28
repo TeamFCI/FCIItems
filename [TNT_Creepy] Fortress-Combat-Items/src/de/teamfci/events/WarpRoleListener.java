@@ -30,6 +30,7 @@ import de.teamfci.main.main;
 
 public class WarpRoleListener implements Listener {
 	HashMap<String, BukkitRunnable> hm = new HashMap<String, BukkitRunnable>();
+	HashMap<Player, Location> pos = new HashMap<Player, Location>();
 	public static main pl;
 	public WarpRoleListener(main main) {
 		WarpRoleListener.pl = main;
@@ -48,8 +49,16 @@ public class WarpRoleListener implements Listener {
 					public void run() {
 						high--;
 						if(!(high==0)){
+							if(!pos.containsKey(p)){
+								pos.put(p, p.getLocation());
+								p.sendMessage("Nicht bewegen. Teleport in:");
+							}
+							if(!p.getLocation().equals(pos.get(p))){
+								p.sendMessage("Teleportvorgand abgebrochen. Rolle wird nicht zurückerstattet.");
+							}
 							for (int x = (high*-1); x < high; x++) {
 								for (int z = (high*-1); z < high; z++) {
+									
 									LineEffect leff = new LineEffect(pl.em);
 									Location location = p.getLocation();
 									location.setX(location.getX() + x);
@@ -85,8 +94,11 @@ public class WarpRoleListener implements Listener {
 									leff.start();
 								}
 							}
+							p.sendMessage("..." + high);
+							
 						} else {
 							sudo(p, "spawn");
+							pos.remove(p);
 							return;
 						}
 						
