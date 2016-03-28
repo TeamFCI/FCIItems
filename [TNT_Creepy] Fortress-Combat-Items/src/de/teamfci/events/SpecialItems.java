@@ -56,8 +56,8 @@ public class SpecialItems implements Listener {
 							if(!p.getLocation().equals(pos.get(p))){
 								p.sendMessage("Teleportvorgand abgebrochen. Rolle wird nicht zurückerstattet.");
 							}
-							for (int x = (high*-1); x < high; x++) {
-								for (int z = (high*-1); z < high; z++) {
+							for (int x = (-3); x < 3; x++) {
+								for (int z = (-3); z < 3; z++) {
 									
 									LineEffect leff = new LineEffect(pl.em);
 									Location location = p.getLocation();
