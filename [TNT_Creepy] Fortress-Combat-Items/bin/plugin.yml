@@ -1,7 +1,7 @@
 name: FCItems
 version: 1.0
 author: HappyHappyBoy & FilipZocktan
-
+depend: [FCIDataprovider]
 main: de.teamfci.main.main
 commands:
   getitem:

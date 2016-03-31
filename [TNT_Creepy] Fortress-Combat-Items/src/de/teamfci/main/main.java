@@ -32,13 +32,9 @@ public class main extends JavaPlugin {
 		pm.registerEvents(new SpecialItems(this), this);
 		this.getCommand("getitem").setExecutor(new GetItem());
 		this.getCommand("fci").setExecutor(new CommandFci());
-		
-		for(Player p : Bukkit.getOnlinePlayers()){
-			p.sendMessage("§d§m----------------------------");
-			p.sendMessage("§bProject-Addons");
-			p.sendMessage("§bPlugin by §aFilip Zocktan & HappyHappyBoy aka. xXFreakDevXx");
-			p.sendMessage("§b/fci §afür mehr Infos!");
-			p.sendMessage("§d§m----------------------------");
+		SpecialItems.running.clear();
+		for (Player p : Bukkit.getOnlinePlayers()) {
+			SpecialItems.running.put(p, false);
 		}
 	}
 	
