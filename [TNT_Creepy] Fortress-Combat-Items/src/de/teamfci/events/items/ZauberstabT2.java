@@ -51,11 +51,7 @@ public class ZauberstabT2 implements Listener{
 	}
 
 	public void Right(final Player p) {
-		String chcklore2 = "";
-		try {
-			chcklore2 = p.getItemInHand().getItemMeta().getLore().get(2);
-		} catch (NullPointerException e) {
-		}
+		String chcklore2 = p.getItemInHand().getItemMeta().getLore().get(2);
 		if (chcklore2.equalsIgnoreCase("§8flexibel,steif")) {
 			if (hm.containsKey(p.getName() + "timer")) {
 				p.sendMessage("§cWarte bis dein MagicArmor jemanden getroffen hat!");

@@ -38,11 +38,7 @@ public class ZauberstabT1 implements Listener {
 		Action ac = ev.getAction();
 		if (ac.equals(Action.RIGHT_CLICK_AIR) || ac.equals(Action.RIGHT_CLICK_BLOCK)) {
 			if (!p.isSneaking()) {
-				String chcklore2 = "";
-				try {
-					chcklore2 = p.getItemInHand().getItemMeta().getLore().get(2);
-				} catch (NullPointerException e) {
-				}
+				String chcklore2 = p.getItemInHand().getItemMeta().getLore().get(2);
 				if (chcklore2.equalsIgnoreCase("§8morsch,zerbrechlich")) {
 					if (hm.containsKey(p.getName() + "timer")) {
 						p.sendMessage("§cWarte bis dein MagicArmor jemanden getroffen hat!");
