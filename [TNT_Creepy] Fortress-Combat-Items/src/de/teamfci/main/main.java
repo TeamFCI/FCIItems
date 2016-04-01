@@ -15,7 +15,9 @@ import de.teamfci.Commands.CommandFci;
 import de.teamfci.Commands.GetItem;
 import de.teamfci.KillMobs.KillDetector;
 import de.teamfci.events.EventPluginEnableEvent;
-import de.teamfci.events.SpecialItems;
+import de.teamfci.events.items.WarpRole;
+import de.teamfci.events.items.ZauberstabT1;
+import de.teamfci.events.items.ZauberstabT2;
 
 public class main extends JavaPlugin {
 	public static EffectManager em;
@@ -26,16 +28,18 @@ public class main extends JavaPlugin {
 	public void onEnable() {
 		loadItems();
 		em = new EffectManager(this);
-		SpecialItems.pl = this;
+		WarpRole.pl = this;
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new EventPluginEnableEvent(), this);
 		pm.registerEvents(new KillDetector(), this);
-		pm.registerEvents(new SpecialItems(this), this);
+		pm.registerEvents(new WarpRole(this), this);
+		pm.registerEvents(new ZauberstabT1(this), this);
+		pm.registerEvents(new ZauberstabT2(this), this);
 		this.getCommand("getitem").setExecutor(new GetItem());
 		this.getCommand("fci").setExecutor(new CommandFci());
-		SpecialItems.running.clear();
+		WarpRole.running.clear();
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			SpecialItems.running.put(p, false);
+			WarpRole.running.put(p, false);
 		}
 	}
 	
