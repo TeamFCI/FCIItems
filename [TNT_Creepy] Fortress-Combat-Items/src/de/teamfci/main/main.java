@@ -18,6 +18,8 @@ import de.teamfci.events.EventPluginEnableEvent;
 import de.teamfci.events.items.WarpRole;
 import de.teamfci.events.items.ZauberstabT1;
 import de.teamfci.events.items.ZauberstabT2;
+import de.teamfci.events.items.ZauberstabT3;
+import de.teamfci.events.items.ZauberstabT4;
 
 public class main extends JavaPlugin {
 	public static EffectManager em;
@@ -35,6 +37,8 @@ public class main extends JavaPlugin {
 		pm.registerEvents(new WarpRole(this), this);
 		pm.registerEvents(new ZauberstabT1(this), this);
 		pm.registerEvents(new ZauberstabT2(this), this);
+		pm.registerEvents(new ZauberstabT3(this), this);
+		pm.registerEvents(new ZauberstabT4(this), this);
 		this.getCommand("getitem").setExecutor(new GetItem());
 		this.getCommand("fci").setExecutor(new CommandFci());
 		WarpRole.running.clear();
