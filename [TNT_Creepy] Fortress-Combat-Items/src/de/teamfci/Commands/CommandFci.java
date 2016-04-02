@@ -12,7 +12,6 @@ public class CommandFci implements CommandExecutor {
 		if(sender instanceof Player) {
 			Player p = (Player) sender;
 			
-			
 			if(args.length == 0) {
 				if(p.hasPermission("fci.fci")) {
 					p.sendMessage("§a§l *-*-*-*-*-*-*-*-*-*-*-*");
